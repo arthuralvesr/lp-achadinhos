@@ -1,0 +1,37 @@
+.brand-marquees { --marquee-height: clamp(210px, 20vw, 310px); position: relative; z-index: 7; isolation: isolate; height: var(--marquee-height); margin-top: calc(var(--marquee-height) / -2 + 36px); overflow: hidden; pointer-events: none; }
+.brand-ribbon { position: absolute; top: 50%; left: -10%; width: 120%; height: 78px; overflow: hidden; color: #102b22; transform-origin: center; pointer-events: auto; }
+.brand-ribbon--front { z-index: 2; background: var(--lime); transform: translateY(-50%) rotate(-4deg); box-shadow: 0 7px 24px #0003; }
+.brand-ribbon--back { z-index: 1; background: #f4f2e7; transform: translateY(-50%) rotate(4deg); }
+.brand-ribbon-track { display: flex; width: max-content; height: 100%; animation: brand-conveyor 36s linear infinite; will-change: transform; }
+.brand-ribbon--back .brand-ribbon-track { animation-duration: 43s; animation-direction: reverse; }
+.brand-ribbon-set { display: flex; flex-shrink: 0; align-items: center; }
+.brand-ribbon-item { display: inline-flex; flex-shrink: 0; align-items: center; gap: 43px; padding-left: 43px; white-space: nowrap; }
+.brand-wordmark { font-family: Arial, Helvetica, sans-serif; font-size: 31px; font-weight: 700; letter-spacing: -1px; line-height: 1; }
+.brand-wordmark--shopee { font-weight: 500; letter-spacing: -1.2px; }
+.brand-wordmark--mercado-livre { max-width: 110px; font-size: 25px; font-weight: 800; letter-spacing: -1.4px; line-height: .9; white-space: normal; }
+.brand-wordmark--samsung { font-size: 26px; font-weight: 900; letter-spacing: 1px; }
+.brand-wordmark--jbl { font-size: 36px; font-weight: 900; letter-spacing: -2.5px; }
+.brand-wordmark--nike { font-style: italic; font-weight: 900; letter-spacing: -2px; }
+.brand-wordmark--xiaomi { font-weight: 500; letter-spacing: -1.5px; }
+.brand-wordmark--philips { font-size: 27px; letter-spacing: -.7px; }
+.brand-wordmark--adidas { font-size: 34px; font-weight: 700; letter-spacing: -1.8px; }
+.brand-wordmark--mondial { font-size: 25px; font-style: italic; font-weight: 900; }
+.brand-ribbon-star { color: #426532; font-size: 24px; }
+.brand-ribbon--back .brand-ribbon-star { color: #819589; }
+.brand-marquees:hover .brand-ribbon-track { animation-play-state: paused; }
+@keyframes brand-conveyor { from { transform: translateX(0); } to { transform: translateX(-25%); } }
+@media (max-width: 600px) {
+  .brand-marquees { --marquee-height: 180px; margin-top: calc(var(--marquee-height) / -2 + 12px); }
+  .brand-ribbon { height: 61px; left: -15%; width: 130%; }
+  .brand-ribbon--front { transform: translateY(-50%) rotate(-8deg); }
+  .brand-ribbon--back { transform: translateY(-50%) rotate(8deg); }
+  .brand-ribbon-item { gap: 29px; padding-left: 29px; }
+  .brand-wordmark { font-size: 25px; }
+  .brand-wordmark--mercado-livre { max-width: 90px; font-size: 21px; }
+  .brand-wordmark--samsung, .brand-wordmark--philips, .brand-wordmark--mondial { font-size: 21px; }
+  .brand-wordmark--jbl, .brand-wordmark--adidas { font-size: 29px; }
+  .brand-ribbon-star { font-size: 19px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .brand-ribbon-track { animation: none; will-change: auto; }
+}

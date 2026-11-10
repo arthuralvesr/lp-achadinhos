@@ -1,0 +1,43 @@
+export const benefitsContent = {
+  eyebrow: "MAIS TEMPO PARA O QUE IMPORTA",
+  title: ["Seu tempo vale mais", "que horas procurando."],
+  description: "Deixe o garimpo com a gente e fique com a melhor parte: descobrir.",
+  items: [
+    {
+      id: "garimpo",
+      image: "/images/benefits/garimpo.webp",
+      imageAlt: "Mulher com sacolas de compras conferindo o celular.",
+      imagePosition: "58% center",
+      tone: "forest",
+      title: "A gente faz o garimpo",
+      description: "Achados para você, sua casa e sua rotina. Deixe a busca com a gente.",
+    },
+    {
+      id: "whatsapp",
+      image: "/images/benefits/whatsapp.webp",
+      imageAlt: "Mulher sorrindo enquanto usa o celular em um café.",
+      imagePosition: "36% center",
+      tone: "lime",
+      title: "Tudo no WhatsApp",
+      description: "Receba ofertas no aplicativo que você já usa. Gostou? Confira na loja.",
+    },
+    {
+      id: "cupons",
+      image: "/images/benefits/cupons.webp",
+      imageAlt: "Mulher com celular e cartão durante uma compra online em casa.",
+      imagePosition: "92% center",
+      tone: "cream",
+      title: "Cupons e descobertas",
+      description: "Cupons da Shopee e do Mercado Livre, com os detalhes para aproveitar.",
+    },
+    {
+      id: "livre",
+      image: "/images/benefits/livre.webp",
+      imageAlt: "Mulher passeando pela cidade com café e celular nas mãos.",
+      imagePosition: "51% center",
+      tone: "forest",
+      title: "Sem compromisso",
+      description: "Entre grátis e veja no seu ritmo. Compre se quiser, saia quando quiser.",
+    },
+  ],
+} as const;

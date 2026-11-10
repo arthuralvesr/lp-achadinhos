@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-brand: var(--green);
+  --color-forest: var(--forest);
+  --color-lime: var(--lime);
+  --color-cream: var(--cream);
+  --font-sans: var(--font-poppins), Arial, sans-serif;
+}
+
+:root {
+  --green: #075c34;
+  --forest: #083c28;
+  --lime: #d2fa69;
+  --cream: #f7f8f0;
+  --muted: #617063;
+  --page-width: 1216px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 24px; }
+body { margin: 0; background: var(--cream); color: var(--forest); font-family: var(--font-poppins), Arial, sans-serif; font-weight: 400; -webkit-font-smoothing: antialiased; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; cursor: pointer; }
+button, a { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
+button:focus-visible, a:focus-visible { outline: 3px solid #55851a; outline-offset: 5px; }
+h1, h2, h3, p { margin: 0; }
+svg { flex-shrink: 0; }
+.page-container { width: min(var(--page-width), calc(100% - 96px)); margin-inline: auto; }
+.home-page { background: #0b201e; }
+.button { display: inline-flex; align-items: center; justify-content: center; gap: 22px; min-height: 52px; padding: 15px 23px; border: 1px solid transparent; border-radius: 7px; background: var(--green); color: #fff; font-size: 13px; font-weight: 500; line-height: 1.5; transition: background 180ms ease, transform 180ms ease; }
+.button:hover { background: #064729; transform: translateY(-2px); }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+.skip-link { position: fixed; z-index: 50; top: 12px; left: 16px; padding: 12px 18px; border-radius: 7px; background: var(--green); color: white; transform: translateY(-160%); }
+.skip-link:focus { transform: translateY(0); }
+
+@media (max-width: 600px) {
+  .page-container { width: calc(100% - 40px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .button { transition: none; }
+}
