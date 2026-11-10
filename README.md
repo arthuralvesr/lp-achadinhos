@@ -86,3 +86,9 @@ A seção `#grupos` fica abaixo dos produtos. Os grupos 12 e 13 estão apresenta
 
 O repositório contém apenas arquivos públicos do site e instala suas próprias dependências. A execução atual não exige variáveis de ambiente. Arquivos locais, builds, logs, bancos de dados e credenciais estão excluídos pelo `.gitignore`.
 A seção `#perguntas-frequentes` encerra a página com fundo branco, título à esquerda e cinco perguntas expansíveis à direita, em verde e verde-lima. Em telas menores, as duas colunas se empilham. `faq.tsx` usa `details`/`summary` nativos com o mesmo `name`: a primeira resposta vem aberta e apenas uma permanece aberta por vez. Funciona por toque, mouse e teclado, inclusive sem JavaScript. Movimento reduzido desativa a entrada das respostas.
+
+## Transição das ofertas para o grupo
+
+`cart-to-group-transition.tsx` acrescenta uma ilustração controlada pela rolagem entre `#achados` e o convite do grupo em `#grupos`. Um carrinho SVG nas cores do site entra pela esquerda, recolhe miniaturas dos três produtos e as lança no convite. A geometria usa as posições reais dos cards e do chat, incluindo as duas linhas da vitrine nas telas menores. O movimento volta com a rolagem reversa.
+
+A camada é decorativa, não intercepta cliques nem altera ofertas, preços ou links. Usa `requestAnimationFrame` por evento de rolagem e `ResizeObserver` para recalcular o percurso em mudanças de tamanho, sem dependências adicionais. Movimento reduzido e JavaScript desativado mantêm o conteúdo estático e o convite acessível. Não existe carrinho de compras, checkout ou envio de mensagens reais nesse efeito.
