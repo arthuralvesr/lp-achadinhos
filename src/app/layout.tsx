@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { Analytics } from "@vercel/analytics/next";
+import { GroupClickTracker } from "@/components/layout/group-click-tracker";
 import { siteConfig } from "@/config/site";
 import "./globals.css";
 
@@ -30,6 +32,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <a href="#conteudo" className="skip-link">Pular para o conteúdo</a>
         {children}
+        <Analytics />
+        <GroupClickTracker />
       </body>
     </html>
   );
