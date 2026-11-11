@@ -3,7 +3,7 @@ import { discount, money, type LiveOffer } from "./offers";
 import { siteOffers } from "./site-offers";
 
 export const heroContent = {
-  title: ["Achados de verdade.", "No seu WhatsApp."],
+  title: ["Chega de pagar caro.", "Os achados estão no grupo."],
   description:
     "Ofertas da Shopee e do Mercado Livre, mais cupons para aproveitar. A gente garimpa. Você recebe no grupo.",
   cta: "Quero entrar no grupo",
