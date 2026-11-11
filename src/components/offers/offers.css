@@ -8,9 +8,10 @@
 .offers-section h2 span, .offers-page h1 span { color: var(--lime); }
 .offers-section-heading h2 { margin-top: 0; }
 .offers-section-heading p, .offers-page-intro { margin-top: 15px; color: #a7bbb3; font-size: 12px; line-height: 1.8; }
-.offers-all { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; gap: 18px; min-height: 45px; padding: 12px 17px; border: 1px solid #d2fa6955; border-radius: 8px; color: var(--lime); font-size: 11px; transition: background 180ms ease, color 180ms ease; }
-.offers-all:hover { background: var(--lime); color: #102b22; }
-.offers-all:focus-visible { outline-color: var(--lime); }
+.offers-section-heading .offers-group-cta { flex-shrink: 0; gap: 10px; min-height: 45px; padding: 12px 17px; border-radius: 8px; background: #25d366; color: #062c1c; font-size: 11px; }
+.offers-section-heading .offers-group-cta:hover { background: #43df7c; }
+.offers-group-cta:focus-visible { outline-color: var(--lime); }
+.offers-group-cta > svg { width: 18px; height: 18px; flex-shrink: 0; }
 .offers-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
 .offers-grid--featured { grid-template-columns: repeat(3, minmax(0, 1fr)) minmax(0, .78fr); }
 .featured-offer { display: flex; min-width: 0; }
@@ -102,7 +103,7 @@
   .offers-eyebrow { font-size: 7px; letter-spacing: 1.4px; }
   .offers-section h2, .offers-page h1 { font-size: 32px; letter-spacing: -1.2px; }
   .offers-section-heading p, .offers-page-intro { font-size: 11px; }
-  .offers-all { min-height: 41px; font-size: 10px; }
+  .offers-section-heading .offers-group-cta { min-height: 41px; font-size: 10px; }
   .offers-grid { gap: 12px; }
   .offer-card { border-radius: 10px; }
   .offer-vip { border-radius: 10px; }
@@ -147,7 +148,7 @@
   .offer-price strong { font-size: 21px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .offer-card, .offer-photo img, .offer-buy, .offers-all { transition: none; }
+  .offer-card, .offer-photo img, .offer-buy, .offers-group-cta { transition: none; }
   .offer-card:hover { translate: none; }
   .offer-photo:hover img { transform: none; }
 }

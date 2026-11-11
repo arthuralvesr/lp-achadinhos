@@ -1,5 +1,4 @@
-import Link from "next/link";
-import { ArrowUpRight, WhatsAppMark } from "@/components/ui/icons";
+import { WhatsAppMark } from "@/components/ui/icons";
 import { featuredOffers, offersArchiveDate } from "@/content/offers";
 import { OfferCard } from "@/components/offers/offer-card";
 import { OffersReveal } from "@/components/offers/offers-reveal";
@@ -13,7 +12,7 @@ export function FeaturedOffers() {
       <OffersReveal>
         <div className="offers-section-heading" data-offer-reveal="0">
           <div><h2 id="offers-title">Escolhidas <span>para o seu dia.</span></h2><p>Achados reais que a gente garimpou. Alguns acabam rápido.</p></div>
-          <Link className="offers-all" href="/promocoes">Ver todas as promoções <ArrowUpRight width={17} height={17} /></Link>
+          <GroupLink className="offers-group-cta">Entrar no grupo do WhatsApp</GroupLink>
         </div>
         <div className="offers-grid offers-grid--featured">
           {featuredOffers.slice(0, 3).map((offer, index) => <div className="featured-offer" key={offer.id} data-cart-source={offer.id} data-offer-reveal={index + 1}><OfferCard offer={offer} destination="group" /></div>)}

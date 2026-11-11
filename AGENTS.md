@@ -2,7 +2,7 @@
 
 - Este repositório contém somente o site público. Instalação, build e publicação são próprios.
 - Não importe código, bancos de dados, credenciais, sessões ou arquivos privados de projetos externos. Qualquer integração futura deve receber somente dados públicos.
-- A landing contém hero, faixas de marcas, promoções, grupos, cupons, vantagens e perguntas frequentes, além do catálogo `/promocoes`. Amplie seções e rotas quando solicitado; evite links para páginas ou âncoras inexistentes.
+- A landing contém hero, faixas de marcas, promoções, grupos, cupons, vantagens e perguntas frequentes. A rota `/promocoes` foi removida; as chamadas das ofertas levam ao grupo do WhatsApp. Amplie seções e rotas quando solicitado; evite links para páginas ou âncoras inexistentes.
 - Textos e exemplos da hero ficam em `src/content/hero.ts`; links públicos em `src/config/site.ts`; cores em `src/app/globals.css`.
 - A demonstração usa mensagens reais arquivadas em `src/content/group-preview.json`, com fotos locais, mais achados do site (`src/content/site-offers.ts`) montados no mesmo formato em `src/content/hero.ts` (ordem do celular em `heroMessageIds`). Mantenha a data do acervo e a indicação de reprodução animada; não apresente esses preços ou cupons como atuais ou como um feed ao vivo.
 - Leia as instruções da versão instalada em `node_modules/next/dist/docs/` antes de alterar convenções do Next.js. Use componentes de servidor para conteúdo e componentes de cliente apenas onde há interatividade.

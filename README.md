@@ -1,8 +1,8 @@
 # Acha+ · Site público
 
-Landing page pública independente, com Next.js App Router, React, TypeScript e Tailwind CSS 4. Inclui hero animada, faixas de marcas, promoções, convite para o grupo, cupons, vantagens, perguntas frequentes e catálogo em `/promocoes`.
+Landing page pública independente, com Next.js App Router, React, TypeScript e Tailwind CSS 4. Inclui hero animada, faixas de marcas, promoções, convite para o grupo, cupons, vantagens e perguntas frequentes.
 
-Na landing, as fotos e os botões das ofertas, os links das mensagens e o achadinho da nota abrem o convite público do WhatsApp configurado em `src/config/site.ts`. Os textos das chamadas indicam a entrada no grupo. O catálogo `/promocoes` mantém os links de compra das ofertas disponíveis; os dados originais do acervo permanecem preservados.
+Na landing, as fotos e os botões das ofertas, os links das mensagens e o achadinho da nota abrem o convite público do WhatsApp configurado em `src/config/site.ts`. Os textos das chamadas indicam a entrada no grupo. A rota `/promocoes` foi removida; os dados originais do acervo permanecem preservados.
 
 ## Executar
 
@@ -79,11 +79,11 @@ O acervo contém quatro ofertas enviadas entre **05 e 07/11/2026**: smartwatch F
 
 A interface foi implementada neste projeto; não usa o código proprietário do WhatsApp. Referência visual adicional: [WhatsApp Groups](https://www.whatsapp.com/groups). O padrão do fundo da conversa é um SVG local.
 
-A seção `#achados`, “Escolhidas para o seu dia”, vem logo depois das faixas de marcas. Mostra três produtos completos com fotos e preços do acervo, preço anterior riscado, percentual de desconto calculado, logo da loja e links de afiliado originais. A quarta posição é uma prévia cortada e desfocada, com convite para o grupo VIP; o conteúdo por trás é decorativo e inerte. O convite para o grupo fica somente no último card dessa seção; o topo mostra apenas o título, a descrição e o link para todas as promoções, sem a chamada anterior acima do título. `offers-reveal.tsx` faz os produtos entrarem na rolagem, com deslocamento, escala e opacidade em sequência; movimento reduzido desativa essa animação, e o conteúdo continua disponível sem JavaScript.
+A seção `#achados`, “Escolhidas para o seu dia”, vem logo depois das faixas de marcas. Mostra três produtos completos com fotos e preços do acervo, preço anterior riscado, percentual de desconto calculado e convites para o grupo nas ofertas. A quarta posição é uma prévia cortada e desfocada, com convite para o grupo VIP; o conteúdo por trás é decorativo e inerte. O topo mostra o título, a descrição e o botão verde “Entrar no grupo do WhatsApp”, com o ícone do WhatsApp. `offers-reveal.tsx` faz os produtos entrarem na rolagem, com deslocamento, escala e opacidade em sequência; movimento reduzido desativa essa animação, e o conteúdo continua disponível sem JavaScript.
 
-O botão “Ver todas as promoções” abre `/promocoes`, que mantém os quatro produtos acessíveis, com busca sem distinção de acentos, filtro por loja, ordenação por data/preço/desconto e estado vazio com limpeza dos filtros. Não há cadastro ou grupo obrigatório para abrir a loja. O convite para o grupo fica como alternativa no final da listagem. Cards e imagens são renderizados no servidor; somente os controles do catálogo usam estado no navegador. Os links externos abrem uma nova aba com `sponsored noopener noreferrer`.
+O antigo botão “Ver todas as promoções” foi substituído pelo convite direto para o WhatsApp. A página `/promocoes` não está mais disponível. O convite abre em uma nova aba e continua funcionando sem JavaScript.
 
-As duas vitrines informam a data do acervo, a possibilidade de mudança dos preços e a existência de links com comissão. Os produtos são estáticos, sem sincronização automática ou consulta de disponibilidade na loja. Os logos locais e suas fontes estão em `public/images/stores/SOURCES.md`.
+A vitrine informa a data do acervo e a possibilidade de mudança dos preços. Os produtos são estáticos, sem sincronização automática ou consulta de disponibilidade na loja. Os logos locais e suas fontes estão em `public/images/stores/SOURCES.md`.
 
 A seção `#cupons` aparece entre os grupos e as vantagens. `coupons.tsx` mostra apenas um trecho compacto do final de uma nota ilustrativa: topo cortado, papel claro inclinado, bordas serrilhadas e código de barras decorativo. A chamada ao lado foi reduzida a título, uma frase e convite para receber cupons. `src/content/coupons.ts` seleciona um desconto do boletim público 221 e a mochila expansível do acervo, com preço anterior riscado, preço registrado, economia calculada e link de afiliado original. A nota informa a data do acervo e que cupons e produto são independentes; nenhum desconto foi inventado ou aplicado ao produto. A faixa coberta abre um modal nativo com o convite do grupo, via `coupon-gate.tsx`; Escape, botão de fechar e clique fora fecham o modal. Sem JavaScript, há um convite direto. Não há feed de cupons nem consulta de validade em tempo real.
 
