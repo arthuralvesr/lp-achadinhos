@@ -1,7 +1,8 @@
 import Image from "next/image";
-import type { RefObject } from "react";
+import { Fragment, type RefObject } from "react";
 import type { GroupPreviewMessage } from "@/content/hero";
-import { ArrowUpRight, WhatsAppMark } from "@/components/ui/icons";
+import { WhatsAppMark } from "@/components/ui/icons";
+import { siteConfig } from "@/config/site";
 import { GroupLink } from "@/components/ui/group-link";
 import { WhatsAppMessage } from "./whatsapp-message";
 import { DeliveryPreview } from "./delivery-preview";
@@ -34,8 +35,11 @@ export function WhatsAppPhone({ messages, incoming, chatRef, empty, finished, ta
           <svg className="wa-header-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden="true"><rect x="2" y="6" width="13" height="12" rx="3" /><path d="m15 10 6-3v10l-6-3" /></svg>
         </div>
         <div className="wa-conversation" data-empty={empty} inert={Boolean(productPreview) || empty} ref={chatRef} tabIndex={0} aria-label="Mensagens da demonstração; role para explorar">
-          <div className="wa-day">09 DE NOVEMBRO</div>
-          {messages.map((message, index) => <WhatsAppMessage message={message} key={message.id} preload={index === 0} tapCue={tapCue && index === 0} />)}
+          {messages.map((message, index) => {
+            const day = messageDay.format(new Date(message.sentAt));
+            const previousDay = index > 0 ? messageDay.format(new Date(messages[index - 1].sentAt)) : null;
+            return <Fragment key={message.id}>{day !== previousDay && <div className="wa-day">{day.toLocaleUpperCase("pt-BR")}</div>}<WhatsAppMessage message={message} preload={index === 0} tapCue={tapCue && index === 0} /></Fragment>;
+          })}
         </div>
         {finished ? (
           <div className="wa-end-cta">
@@ -51,7 +55,7 @@ export function WhatsAppPhone({ messages, incoming, chatRef, empty, finished, ta
           <div className={`store-preview-brand ${productPreview.store === "Shopee" ? "store-preview-brand--shopee" : ""}`}><span>{productPreview.store}</span><small>{delivered ? "SIMULAÇÃO" : "PRÉVIA"}</small></div>
           {delivered ? <DeliveryPreview product={productPreview} /> : <>
           {productPreview.image && <div className="store-preview-photo"><Image src={productPreview.image} alt={productPreview.shortTitle} fill sizes="280px" /></div>}
-          <div className="store-preview-body"><h2>{productPreview.title}</h2>{productPreview.previousPrice && <del>{money.format(productPreview.previousPrice)}</del>}<strong>{productPreview.price ? money.format(productPreview.price) : "Confira na loja"}</strong><a href={productPreview.url} target="_blank" rel="noopener noreferrer">Comprar na loja <ArrowUpRight width={16} height={16} /></a><p>Confira preço, frete e disponibilidade na loja.</p></div>
+          <div className="store-preview-body"><h2>{productPreview.title}</h2>{productPreview.previousPrice && <del>{money.format(productPreview.previousPrice)}</del>}<strong>{productPreview.price ? money.format(productPreview.price) : "Confira na loja"}</strong><a href={siteConfig.links.group} target="_blank" rel="noopener noreferrer">Entrar no grupo <WhatsAppMark width={17} height={17} /><span className="sr-only"> (abre o convite no WhatsApp em uma nova aba)</span></a><p>Receba os próximos achados no grupo do WhatsApp.</p></div>
           </>}
           <span className="store-preview-home" aria-hidden="true" />
         </section>}
@@ -61,3 +65,4 @@ export function WhatsAppPhone({ messages, incoming, chatRef, empty, finished, ta
 }
 
 const money = new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" });
+const messageDay = new Intl.DateTimeFormat("pt-BR", { day: "2-digit", month: "long", timeZone: "America/Sao_Paulo" });

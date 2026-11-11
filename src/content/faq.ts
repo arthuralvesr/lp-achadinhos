@@ -14,7 +14,7 @@ export const faqContent = {
     {
       id: "comprar",
       question: "Como compro um produto que gostei?",
-      answer: "Toque em “Ver na loja” ou no link da oferta enviada no grupo. A compra é concluída na Shopee ou no Mercado Livre, com pagamento, frete e entrega pela própria plataforma.",
+      answer: "Entre no grupo pelo convite da página para receber os achados. No grupo, toque no link da oferta para conferir o produto. A compra é concluída na Shopee ou no Mercado Livre, com pagamento, frete e entrega pela própria plataforma.",
     },
     {
       id: "precos",

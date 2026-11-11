@@ -2,6 +2,8 @@
 
 Landing page pública independente, com Next.js App Router, React, TypeScript e Tailwind CSS 4. Inclui hero animada, faixas de marcas, promoções, convite para o grupo, cupons, vantagens, perguntas frequentes e catálogo em `/promocoes`.
 
+Na landing, as fotos e os botões das ofertas, os links das mensagens e o achadinho da nota abrem o convite público do WhatsApp configurado em `src/config/site.ts`. Os textos das chamadas indicam a entrada no grupo. O catálogo `/promocoes` mantém os links de compra das ofertas disponíveis; os dados originais do acervo permanecem preservados.
+
 ## Executar
 
 Requer Node.js 22 ou superior.
@@ -31,14 +33,17 @@ O servidor de produção usa a porta padrão do Next.js (3000) ou a variável `P
 - `src/content/hero.ts`: textos da hero e tipagem da demonstração.
 - `src/content/brands.ts`: marketplaces e exemplos de marcas das faixas cruzadas.
 - `src/content/benefits.ts`: títulos, descrições e detalhes das quatro vantagens do grupo.
+- `src/content/featured-selection.ts`: ordem única dos quatro exemplos na hero, vitrine, carrinho e nota.
 - `src/content/offers.ts`: produtos públicos extraídos do acervo, seleção da landing, moeda e cálculo de desconto.
+- `src/content/site-offers.ts`: achados do site que não precisam ter passado pelo grupo (fotos em `public/images/offers/`). Oferta com `ended: true` aparece como "Já acabou", sem link de compra e com convite para o grupo.
 - `src/content/faq.ts`: cinco perguntas e respostas sobre o grupo, compra e condições das ofertas.
 - `src/content/coupons.ts`: exemplos de descontos do acervo e produto destacado na nota ilustrativa.
 - `src/content/groups.ts`: números e estados de apresentação dos grupos, configurados manualmente conforme a proposta do usuário.
 - `src/content/group-preview.json`: seleção pública de mensagens reais já enviadas no grupo.
+- `src/content/hero.ts`: ordem das mensagens do celular (`heroMessageIds`; o 1º produto é o tocado na demonstração) e achados do site convertidos para o formato de mensagem.
 - `src/config/site.ts`: nome da marca e links públicos do grupo e Instagram.
 - `src/assets/fonts/`: Poppins local e licença.
-- `public/images/hero/`: imagens WebP usadas na composição.
+- `public/images/hero/`: imagens locais usadas na composição.
 
 As cores gerais ficam em `src/app/globals.css`; a paleta escura e a composição da hero em `src/components/home/hero.css`. Tailwind está disponível para os próximos componentes. A página e o texto principal são renderizados no servidor. A conversa é pré-renderizada com a primeira mensagem e continua no navegador, com notificações, rolagem do chat e entrada dos cards laterais.
 
@@ -48,7 +53,7 @@ O pouso preserva a cena 3D e o último quadro das animações. A tela frontal fi
 
 As notificações e os cards laterais ficam bloqueados até o evento de término da entrada. A sequência avança automaticamente e para quando a aba está oculta ou o celular sai da área visível. Não há controles, bolinhas de progresso ou legenda externa. Com movimento reduzido, o aparelho aparece parado com todas as mensagens e o botão do grupo disponíveis. A rolagem da página usa `requestAnimationFrame`, sem atualizar estado React a cada evento.
 
-Após o pouso, a primeira notificação aparece em 160 ms e a mensagem com seu balão lateral em 650 ms. A primeira oferta é o gloss do print de referência. Um cursor ilustrativo toca seu link e abre, dentro do celular, uma prévia identificada do produto, seguida de uma simulação de entrega. O botão “Comprar na loja” é um link real; a demonstração nunca navega para fora, abre abas ou realiza compras automaticamente. As próximas mensagens chegam em intervalos de 1,4 segundo. Ao focar, clicar ou rolar dentro do celular, a demonstração pausa e retoma após 6,5 segundos sem interação. Ao terminar, mostra “Quero ver mais achados” dentro do aparelho.
+Após o pouso, a primeira notificação aparece em 160 ms e a mensagem com seu balão lateral em 650 ms. A primeira oferta é o smartwatch Forestory G1, selecionado do acervo. Um cursor ilustrativo toca seu link e abre, dentro do celular, uma prévia identificada do produto, seguida de uma simulação de entrega. O botão “Comprar na loja” é um link real; a demonstração nunca navega para fora, abre abas ou realiza compras automaticamente. As próximas mensagens chegam em intervalos de 1,4 segundo. Ao focar, clicar ou rolar dentro do celular, a demonstração pausa e retoma após 6,5 segundos sem interação. Ao terminar, mostra “Quero ver mais achados” dentro do aparelho.
 
 As mensagens flutuantes se distribuem por toda a hero, em alturas diferentes, incluindo as laterais do título e a região do celular. No desktop, ficam mais próximas entre si, com sobreposição leve. Até 900 px, todas viram notificações compactas e se concentram na parte inferior, sobre o aparelho; o título começa diretamente no topo, sem espaço reservado para notificações. Os links originais das ofertas são preservados. Os enfeites externos de estrela e X foram removidos. Hover ou foco trazem uma mensagem para a frente e pausam seu movimento para leitura. Clicar nela (ou pressionar Enter/Espaço ao focar o grupo) mantém o destaque até selecionar outra. A preferência de movimento reduzido desativa a flutuação.
 
@@ -66,7 +71,7 @@ Duas faixas cruzadas aparecem abaixo do celular, com espaço entre o aparelho e 
 
 A seção `#vantagens` fica depois dos cupons e antes das perguntas frequentes, e adapta os quatro benefícios de “04 / Vantagens” do Figcraft à identidade da hero: fundo escuro, título em verde-lima e cards fotográficos com título e descrição em bases coloridas. Os quatro cards cabem em uma linha no desktop e em duas linhas nas telas menores, sem rolagem lateral ou setas. `benefits-cards.tsx` controla o destaque por mouse, toque ou teclado: o card destacado cresce enquanto os vizinhos encolhem, mantendo a largura disponível e a altura dos cards. Toque mantém o destaque. As fotos são WebP locais; fontes e créditos estão em `public/images/benefits/SOURCES.md`. `benefits-motion.tsx` acrescenta entradas na rolagem com IntersectionObserver e Web Animations. O conteúdo permanece disponível sem JavaScript, e a preferência de movimento reduzido mantém as interações sem transições animadas. O botão da seção usa o mesmo link público do grupo.
 
-O acervo contém quatro ofertas efetivamente enviadas pelo sistema em **09/11/2026** (robô aspirador, mochila, panelas e gloss) e o trecho do Mercado Livre de um boletim real de cupons enviado na mesma data. Fotos, preços, texto formatado, URLs e horários vêm desses registros. Os títulos curtos usados nas descrições das imagens são editoriais. O boletim está identificado como trecho e tem um link para o grupo.
+O acervo contém quatro ofertas enviadas entre **05 e 07/11/2026**: smartwatch Forestory G1 (75% OFF), robô aspirador Lydsto G1 (67% OFF), cadeira gamer Fox Racer (71% OFF) e mochila expansível Romantic Crown (86% OFF). O trecho do boletim de cupons é de **09/11/2026**. Os descontos são calculados sobre os preços anteriores registrados, sem verificação de preço atual ou afirmação de ranking de vendas. Fotos, preços, texto formatado, URLs e horários vêm desses registros. As fontes das imagens ficam em `public/images/hero/SOURCES.md`. Os títulos curtos usados nas descrições das imagens são editoriais. O boletim está identificado como trecho e tem um link para o grupo.
 
 `whatsapp-message.tsx` é o único componente de balão, usado tanto no celular quanto nas laterais. Ele segue o print no tema claro: remetente “Acha Mais”, fundo branco, foto, texto com as mesmas quebras e formatação, preço anterior riscado, URL azul sublinhada e horário à direita. Não há avatar, selo da loja ou cartão de preços inventado dentro da mensagem.
 
@@ -80,7 +85,7 @@ O botão “Ver todas as promoções” abre `/promocoes`, que mantém os quatro
 
 As duas vitrines informam a data do acervo, a possibilidade de mudança dos preços e a existência de links com comissão. Os produtos são estáticos, sem sincronização automática ou consulta de disponibilidade na loja. Os logos locais e suas fontes estão em `public/images/stores/SOURCES.md`.
 
-A seção `#cupons` aparece entre os grupos e as vantagens. `coupons.tsx` mostra apenas um trecho compacto do final de uma nota ilustrativa: topo cortado, papel claro inclinado, bordas serrilhadas e código de barras decorativo. A chamada ao lado foi reduzida a título, uma frase e convite para receber cupons. `src/content/coupons.ts` seleciona um desconto do boletim público 221 e a mochila do registro 222, com preço anterior riscado, preço registrado, economia calculada e link de afiliado original. A nota informa a data do acervo e que cupons e produto são independentes; nenhum desconto foi inventado ou aplicado ao produto. A faixa coberta abre um modal nativo com o convite do grupo, via `coupon-gate.tsx`; Escape, botão de fechar e clique fora fecham o modal. Sem JavaScript, há um convite direto. Não há feed de cupons nem consulta de validade em tempo real.
+A seção `#cupons` aparece entre os grupos e as vantagens. `coupons.tsx` mostra apenas um trecho compacto do final de uma nota ilustrativa: topo cortado, papel claro inclinado, bordas serrilhadas e código de barras decorativo. A chamada ao lado foi reduzida a título, uma frase e convite para receber cupons. `src/content/coupons.ts` seleciona um desconto do boletim público 221 e a mochila expansível do acervo, com preço anterior riscado, preço registrado, economia calculada e link de afiliado original. A nota informa a data do acervo e que cupons e produto são independentes; nenhum desconto foi inventado ou aplicado ao produto. A faixa coberta abre um modal nativo com o convite do grupo, via `coupon-gate.tsx`; Escape, botão de fechar e clique fora fecham o modal. Sem JavaScript, há um convite direto. Não há feed de cupons nem consulta de validade em tempo real.
 
 A seção `#grupos` fica abaixo dos produtos. Os grupos 12 e 13 estão apresentados como lotados, com X grande e botões nativamente desabilitados, sem link de convite. O grupo 14 é destacado como atual e usa o convite de `src/config/site.ts`. Esses estados são de apresentação, definidos manualmente pelo usuário; não há consulta ao WhatsApp para verificar capacidade ou número de participantes. No desktop os três cards ficam lado a lado; em telas menores, os dois encerrados dividem uma linha e o atual ocupa a linha seguinte. Todo o conteúdo funciona sem JavaScript.
 

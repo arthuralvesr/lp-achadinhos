@@ -11,7 +11,8 @@ export function OffersCatalog({ products }: { products: Offer[] }) {
   const [query, setQuery] = useState("");
   const [store, setStore] = useState<Store | "Todas">("Todas");
   const [sort, setSort] = useState("recent");
-  const results = products.filter((offer) => (store === "Todas" || offer.store === store) && normalize(`${offer.title} ${offer.shortTitle} ${offer.store}`).includes(normalize(query.trim()))).sort((a, b) => sort === "price" ? a.price - b.price : sort === "discount" ? discount(b) - discount(a) : b.sentAt.localeCompare(a.sentAt));
+  // Ofertas encerradas ficam sempre no fim, em qualquer ordenação.
+  const results = products.filter((offer) => (store === "Todas" || offer.store === store) && normalize(`${offer.title} ${offer.shortTitle} ${offer.store ?? ""}`).includes(normalize(query.trim()))).sort((a, b) => Number(Boolean(a.ended)) - Number(Boolean(b.ended)) || (sort === "price" ? a.price - b.price : sort === "discount" ? discount(b) - discount(a) : b.sentAt.localeCompare(a.sentAt)));
 
   return (
     <div className="offers-catalog">

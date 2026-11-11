@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, useSyncExternalStore, type ReactNode } from "react";
 import { WhatsAppMark } from "@/components/ui/icons";
+import { siteConfig } from "@/config/site";
 import type { GroupPreviewMessage } from "@/content/hero";
 import { WhatsAppPhone } from "./whatsapp-phone";
 import { WhatsAppMessage } from "./whatsapp-message";
@@ -104,11 +105,11 @@ export function HeroExperience({ messages, children }: { messages: GroupPreviewM
               setSelectedOffer(product.id);
             }
           }}>
-            <div className="offer-drift"><div className="floating-offer"><WhatsAppMessage message={product} compact /><a className="hero-offer-summary" href={product.url} target="_blank" rel="sponsored noopener noreferrer"><WhatsAppMark /><span><small>Acha+ · WhatsApp</small><strong>{product.headline}</strong></span><span className="sr-only">Ver na loja (abre em uma nova aba)</span></a></div></div>
+            <div className="offer-drift"><div className="floating-offer"><WhatsAppMessage message={product} compact /><a className="hero-offer-summary" href={siteConfig.links.group} target="_blank" rel="noopener noreferrer"><WhatsAppMark /><span><small>Entrar no grupo · WhatsApp</small><strong>{product.headline}</strong></span><span className="sr-only">Entrar no grupo do WhatsApp (abre em uma nova aba)</span></a></div></div>
           </div>
         );
       })}
-      <div className="hero-preview" id="previa" role="group" aria-label="Demonstração com mensagens reais do acervo do grupo">
+      <div className="hero-preview" id="previa" role="group" aria-label="Demonstração com achados reais no formato das mensagens do grupo">
         <div className="stage-glow" aria-hidden="true" />
         <div className="stage-orbit" aria-hidden="true" />
         <div className="central-phone">

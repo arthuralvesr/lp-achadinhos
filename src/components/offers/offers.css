@@ -51,6 +51,12 @@
 .offer-buy { display: flex; align-items: center; justify-content: space-between; gap: 10px; width: 100%; min-height: 42px; margin-top: 21px; padding: 12px 13px; border-radius: 7px; background: #0b201e; color: #d2fa69; font-size: 11px; font-weight: 500; transition: background 180ms ease; }
 .offer-buy:hover { background: #174c3b; }
 .offer-buy:focus-visible { outline-color: #075c34; }
+.offer-card--ended .offer-photo img { filter: grayscale(.7); opacity: .75; }
+.offer-discount--ended { background: #0b201e; color: #f4f2e7; letter-spacing: .6px; }
+.offer-ended-tag { display: inline-flex; align-items: center; height: 32px; padding: 4px 9px; border-radius: 5px; background: #eef1ee; color: #5d6a63; font-size: 10px; font-weight: 500; }
+.offer-card--ended .offer-price strong { color: #8a928d; }
+.offer-buy--group { background: #25d366; color: #062c1c; }
+.offer-buy--group:hover { background: #1fb457; }
 .offers-note { max-width: 850px; margin-top: 19px; color: #9db0a4; font-size: 9px; line-height: 1.9; }
 .offers-note a { color: #d0e5b9; text-decoration: underline; text-underline-offset: 3px; }
 .offers-page { min-height: 100vh; padding-bottom: 75px; }
@@ -114,6 +120,7 @@
   .offer-discount { top: 8px; right: 7px; padding: 4px 5px; font-size: 7px; }
   .offer-card-body { padding: 0 11px 12px; }
   .offer-store { height: 27px; min-width: 72px; padding: 3px 6px; }
+  .offer-ended-tag { height: 27px; padding: 3px 6px; font-size: 8px; }
   .offer-store--meli img { width: 55px; height: 22px; }
   .offer-store--shopee { gap: 4px; font-size: 12px; }
   .offer-store--shopee img { width: 15px; height: 17px; }
