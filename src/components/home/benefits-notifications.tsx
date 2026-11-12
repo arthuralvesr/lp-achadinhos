@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { WhatsAppMark } from "@/components/ui/icons";
+import { NotificationPreview } from "@/components/ui/notification-preview";
 
 const notifications = [
   { id: "find", title: "Olha esse achado 👀", text: "Uma descoberta para facilitar a sua rotina." },
@@ -34,15 +34,7 @@ export function BenefitsNotifications() {
   return (
     <div ref={ref} className="benefits-notifications" data-running="false" aria-hidden="true">
       {notifications.map((notification) => (
-        <div className={`benefits-notification benefits-notification--${notification.id}`} key={notification.id}>
-          <span className="benefits-notification-icon"><WhatsAppMark /></span>
-          <div className="benefits-notification-copy">
-            <div className="benefits-notification-app"><span>WHATSAPP</span><span>agora</span></div>
-            <strong>Acha+ | Achadinhos</strong>
-            <p>{notification.title}</p>
-            <small>{notification.text}</small>
-          </div>
-        </div>
+        <NotificationPreview className={`benefits-notification benefits-notification--${notification.id}`} key={notification.id} title={notification.title} description={notification.text} />
       ))}
     </div>
   );

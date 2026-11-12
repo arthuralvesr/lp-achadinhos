@@ -29,7 +29,7 @@ export function Groups() {
             );
           })}
         </div>
-        <p className="groups-reassurance"><Check />Entrada gratuita<span aria-hidden="true">·</span>Sem cadastro<span aria-hidden="true">·</span>Saia quando quiser</p>
+        <p className="groups-reassurance"><Check />Entrada gratuita<span aria-hidden="true">·</span>É seguro<span aria-hidden="true">·</span>Saia quando quiser</p>
       </div>
     </section>
   );

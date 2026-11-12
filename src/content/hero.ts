@@ -3,11 +3,11 @@ import { discount, money, type LiveOffer } from "./offers";
 import { siteOffers } from "./site-offers";
 
 export const heroContent = {
-  title: ["Chega de pagar caro.", "Os achados estão no grupo."],
+  title: [["Chega de", "pagar caro."], ["Os achados", "estão no grupo."]],
   description:
     "Ofertas da Shopee e do Mercado Livre, mais cupons para aproveitar. A gente garimpa. Você recebe no grupo.",
   cta: "Quero entrar no grupo",
-  reassurance: ["É grátis", "Sem cadastro", "Saia quando quiser"],
+  reassurance: ["É grátis", "É seguro", "Saia quando quiser"],
 };
 
 export type GroupPreviewMessage = (typeof archive.messages)[number];

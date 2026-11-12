@@ -1,7 +1,7 @@
 .brand-marquees { --marquee-height: clamp(210px, 20vw, 310px); position: relative; z-index: 7; isolation: isolate; height: var(--marquee-height); margin-top: calc(var(--marquee-height) / -2 + 36px); overflow: hidden; pointer-events: none; }
-.brand-ribbon { position: absolute; top: 50%; left: -10%; width: 120%; height: 78px; overflow: hidden; color: #102b22; transform-origin: center; pointer-events: auto; }
-.brand-ribbon--front { z-index: 2; background: var(--lime); transform: translateY(-50%) rotate(-4deg); box-shadow: 0 7px 24px #0003; }
-.brand-ribbon--back { z-index: 1; background: #f4f2e7; transform: translateY(-50%) rotate(4deg); }
+.brand-ribbon { position: absolute; top: 50%; left: -10%; width: 120%; height: 78px; overflow: hidden; color: var(--on-accent); transform-origin: center; pointer-events: auto; }
+.brand-ribbon--front { z-index: 2; background: var(--brand-orange); transform: translateY(-50%) rotate(-4deg); box-shadow: 0 7px 24px #0003; }
+.brand-ribbon--back { z-index: 1; border-block: 1px solid var(--border); background: #eee4d7; color: var(--ink); transform: translateY(-50%) rotate(4deg); }
 .brand-ribbon-track { display: flex; width: max-content; height: 100%; animation: brand-conveyor 36s linear infinite; will-change: transform; }
 .brand-ribbon--back .brand-ribbon-track { animation-duration: 43s; animation-direction: reverse; }
 .brand-ribbon-set { display: flex; flex-shrink: 0; align-items: center; }
@@ -16,8 +16,8 @@
 .brand-wordmark--philips { font-size: 27px; letter-spacing: -.7px; }
 .brand-wordmark--adidas { font-size: 34px; font-weight: 700; letter-spacing: -1.8px; }
 .brand-wordmark--mondial { font-size: 25px; font-style: italic; font-weight: 900; }
-.brand-ribbon-star { color: #426532; font-size: 24px; }
-.brand-ribbon--back .brand-ribbon-star { color: #819589; }
+.brand-ribbon-star { color: #8c4000; font-size: 24px; }
+.brand-ribbon--back .brand-ribbon-star { color: #93806e; }
 .brand-marquees:hover .brand-ribbon-track { animation-play-state: paused; }
 @keyframes brand-conveyor { from { transform: translateX(0); } to { transform: translateX(-25%); } }
 @media (max-width: 600px) {

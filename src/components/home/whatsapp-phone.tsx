@@ -4,6 +4,7 @@ import type { GroupPreviewMessage } from "@/content/hero";
 import { WhatsAppMark } from "@/components/ui/icons";
 import { siteConfig } from "@/config/site";
 import { GroupLink } from "@/components/ui/group-link";
+import { NotificationPreview } from "@/components/ui/notification-preview";
 import { WhatsAppMessage } from "./whatsapp-message";
 import { DeliveryPreview } from "./delivery-preview";
 
@@ -49,7 +50,7 @@ export function WhatsAppPhone({ messages, incoming, chatRef, empty, finished, ta
           </div>
         ) : <div className="wa-input"><svg width="11" height="13" viewBox="0 0 14 16" fill="none" stroke="currentColor" strokeWidth="1.3" aria-hidden="true"><rect x="2" y="7" width="10" height="8" rx="2" /><path d="M4 7V4a3 3 0 0 1 6 0v3" /></svg>Somente admins podem enviar mensagens</div>}
         <div className="wa-home" aria-hidden="true"><span /></div>
-        {incoming && <div className="wa-notification" key={incoming.id} aria-hidden="true"><span className="wa-notification-icon"><WhatsAppMark /></span><div><span className="wa-notification-app">WHATSAPP <small>agora</small></span><strong>Acha+ | Achadinhos</strong><p>{incoming.headline || "🎟️ Cupons do dia chegaram ao grupo"}</p></div></div>}
+        {incoming && <NotificationPreview className="wa-notification" compact key={incoming.id} title={incoming.headline || "🎟️ Cupons do dia chegaram ao grupo"} />}
         {productPreview && <section className="demo-store-preview" aria-label={delivered ? "Simulação de pedido entregue" : "Prévia do produto na loja"}>
           <div className="store-preview-browser"><button type="button" onClick={onClosePreview} aria-label="Voltar à conversa">‹</button><span>{delivered ? "Seu pedido" : "Prévia do produto"}<small>{productPreview.store}</small></span><span className="store-preview-dots" aria-hidden="true">•••</span></div>
           <div className={`store-preview-brand ${productPreview.store === "Shopee" ? "store-preview-brand--shopee" : ""}`}><span>{productPreview.store}</span><small>{delivered ? "SIMULAÇÃO" : "PRÉVIA"}</small></div>

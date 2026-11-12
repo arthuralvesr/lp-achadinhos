@@ -17,7 +17,7 @@ export function GroupInviteChat({ groupNumber }: { groupNumber: number }) {
           <p>Prontinho! Aqui está seu convite. É só tocar abaixo para entrar. 💚</p>
           <div className="group-chat-invite-preview" data-cart-destination><WhatsAppMark /><div><strong>Acha+ VIP #{groupNumber}</strong><span>Ofertas e cupons · WhatsApp</span></div></div>
           <GroupLink className="group-chat-invite-link">Entrar no grupo VIP</GroupLink>
-          <small className="group-chat-invite-note">É grátis. Sem cadastro.</small>
+          <small className="group-chat-invite-note">É grátis. É seguro.</small>
         </div>
       </div>
     </div>

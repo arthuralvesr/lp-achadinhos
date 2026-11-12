@@ -1,0 +1,17 @@
+.notification-preview { display: grid; grid-template-columns: 42px minmax(0, 1fr); align-items: start; gap: 12px; padding: 16px; border: 1px solid #ded8cf; border-left: 3px solid var(--whatsapp-green); border-radius: 24px; background: #fffffff5; color: #30251e; box-shadow: 0 12px 30px #30251e1a, 0 2px 6px #30251e0a; font-family: var(--font-poppins), Arial, sans-serif; text-align: left; backdrop-filter: blur(18px); pointer-events: none; }
+.notification-preview-icon { display: grid; place-items: center; width: 42px; height: 42px; border: 1px solid #ffffff60; border-radius: 13px; background: var(--whatsapp-green); color: #fff; box-shadow: 0 3px 8px #25d36626; }
+.notification-preview-icon svg { width: 29px; height: 29px; }
+.notification-preview-copy { min-width: 0; }
+.notification-preview-meta { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 5px; font-size: 10px; line-height: 1.4; }
+.notification-preview-meta > span { color: #137a3d; font-weight: 500; }
+.notification-preview-meta > small { flex-shrink: 0; color: #76695e; font-size: 9px; }
+.notification-preview-sender { display: block; font-size: 12px; font-weight: 500; line-height: 1.5; }
+.notification-preview-title { margin-top: 4px; font-size: 13px; font-weight: 500; line-height: 1.5; overflow-wrap: anywhere; }
+.notification-preview-description { margin-top: 4px; color: #76695e; font-size: 11px; line-height: 1.6; overflow-wrap: anywhere; }
+.notification-preview--compact { grid-template-columns: 32px minmax(0, 1fr); gap: 9px; padding: 12px 11px; border-radius: 22px; box-shadow: 0 6px 20px #30251e24; }
+.notification-preview--compact .notification-preview-icon { width: 32px; height: 32px; border-radius: 10px; }
+.notification-preview--compact .notification-preview-icon svg { width: 24px; height: 24px; }
+.notification-preview--compact .notification-preview-meta { margin-bottom: 3px; font-size: 9px; }
+.notification-preview--compact .notification-preview-meta > small { font-size: 8px; }
+.notification-preview--compact .notification-preview-sender { font-size: 10px; }
+.notification-preview--compact .notification-preview-title { display: -webkit-box; overflow: hidden; -webkit-box-orient: vertical; -webkit-line-clamp: 2; margin-top: 3px; font-size: 11px; line-height: 1.5; }

@@ -177,12 +177,12 @@ export function CartToGroupTransition({ products }: { products: Product[] }) {
         <span className="cart-collection-label">Levando os achados pro grupo</span>
         <span className="cart-collection-count" data-visible="false">0</span>
         <svg className="cart-collection-drawing" viewBox="0 0 160 130" fill="none">
-          <defs><linearGradient id={gradientId} x1="38" y1="38" x2="135" y2="90" gradientUnits="userSpaceOnUse"><stop stopColor="#e0ff91" /><stop offset="1" stopColor="#9fdb35" /></linearGradient></defs>
-          <ellipse cx="85" cy="121" rx="57" ry="5" fill="#062a1b" fillOpacity=".2" />
-          <path d="M9 19h15l21 76h87" stroke="#f4f5e9" strokeWidth="7" strokeLinecap="round" strokeLinejoin="round" />
-          <path d="M32 39h113l-13 46H43L32 39Z" fill={`url(#${gradientId})`} stroke="#1c5435" strokeWidth="3" strokeLinejoin="round" />
-          <path d="m57 48 5 28m25-28v28m27-28-5 28M43 62h94" stroke="#6d9d2c" strokeWidth="2" strokeOpacity=".55" />
-          {[54, 123].map((x) => <g key={x}><circle cx={x} cy="109" r="10" fill="#153a2b" stroke="#f4f5e9" strokeWidth="3" /><g className="cart-collection-spokes"><path d={`M${x - 4} 109h8m-4-4v8`} stroke="#d2fa69" strokeWidth="2" /></g></g>)}
+          <defs><linearGradient id={gradientId} x1="38" y1="38" x2="135" y2="90" gradientUnits="userSpaceOnUse"><stop stopColor="var(--brand-gold)" /><stop offset="1" stopColor="var(--brand-orange)" /></linearGradient></defs>
+          <ellipse cx="85" cy="121" rx="57" ry="5" fill="#3b210e" fillOpacity=".2" />
+          <path d="M9 19h15l21 76h87" stroke="var(--surface)" strokeWidth="7" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M32 39h113l-13 46H43L32 39Z" fill={`url(#${gradientId})`} stroke="#834210" strokeWidth="3" strokeLinejoin="round" />
+          <path d="m57 48 5 28m25-28v28m27-28-5 28M43 62h94" stroke="#ad5b0a" strokeWidth="2" strokeOpacity=".55" />
+          {[54, 123].map((x) => <g key={x}><circle cx={x} cy="109" r="10" fill="var(--ink)" stroke="var(--surface)" strokeWidth="3" /><g className="cart-collection-spokes"><path d={`M${x - 4} 109h8m-4-4v8`} stroke="var(--brand-gold)" strokeWidth="2" /></g></g>)}
         </svg>
       </div>
     </div>

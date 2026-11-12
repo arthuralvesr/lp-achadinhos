@@ -17,7 +17,7 @@ export function Coupons() {
           <h2 id="coupons-title">O melhor preço<br /><span>ainda pode cair.</span></h2>
           <p>Cupons e achadinhos para pagar menos, direto no seu WhatsApp.</p>
           <GroupLink className="coupons-main-cta">Quero receber os cupons</GroupLink>
-          <small>Grátis. Sem cadastro.</small>
+          <small>Grátis. É seguro.</small>
         </div>
         <div className="coupon-receipt-scene">
           <article className="coupon-receipt" aria-labelledby="receipt-title">

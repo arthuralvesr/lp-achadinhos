@@ -68,7 +68,7 @@ export function HeroExperience({ messages, children }: { messages: GroupPreviewM
       timers.push(window.setTimeout(() => {
         setVisibleCount((count) => Math.min(count + 1, messages.length));
         setIncoming(false);
-      }, visibleCount === 0 ? 650 : 1400));
+      }, visibleCount === 0 ? 2100 : 2800));
     }
     return () => timers.forEach((timer) => window.clearTimeout(timer));
   }, [settled, running, finished, visibleCount, messages.length, commerceStage]);
@@ -105,7 +105,7 @@ export function HeroExperience({ messages, children }: { messages: GroupPreviewM
               setSelectedOffer(product.id);
             }
           }}>
-            <div className="offer-drift"><div className="floating-offer"><WhatsAppMessage message={product} compact /><a className="hero-offer-summary" href={siteConfig.links.group} target="_blank" rel="noopener noreferrer"><WhatsAppMark /><span><small>Entrar no grupo · WhatsApp</small><strong>{product.headline}</strong></span><span className="sr-only">Entrar no grupo do WhatsApp (abre em uma nova aba)</span></a></div></div>
+            <div className="offer-drift"><div className="floating-offer"><WhatsAppMessage message={product} compact /><a className="hero-offer-summary" href={siteConfig.links.group} target="_blank" rel="noopener noreferrer"><WhatsAppMark /><span><small>WhatsApp<span>agora</span></small><span className="hero-summary-sender">Acha+ | Achadinhos</span><strong>{product.headline}</strong></span><span className="sr-only">Entrar no grupo do WhatsApp (abre em uma nova aba)</span></a></div></div>
           </div>
         );
       })}

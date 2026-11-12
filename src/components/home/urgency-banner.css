@@ -1,0 +1,30 @@
+﻿.urgency-banner { position: relative; z-index: 6; background: linear-gradient(110deg, #9e1827, #cf293b 50%, #a9182a); color: #fff; border-bottom: 1px solid #ff9a9a60; box-shadow: 0 6px 24px #f4294b40; }
+.urgency-banner::after { content: ""; position: absolute; z-index: -1; left: 0; right: 0; bottom: -40px; height: 40px; background: radial-gradient(ellipse at 50% 0, #ff345b65, #ef29482b 40%, transparent 72%); filter: blur(8px); pointer-events: none; }
+.urgency-banner-inner { position: relative; display: flex; align-items: center; justify-content: center; gap: 24px; min-height: 52px; padding-block: 8px; }
+.urgency-banner-main { display: flex; align-items: center; gap: 20px; }
+.urgency-banner-copy { display: flex; align-items: center; gap: 8px; white-space: nowrap; line-height: 1.4; }
+.urgency-banner-copy strong { font-size: 13px; font-weight: 500; }
+.urgency-banner-icon { color: #ffe1b0; filter: drop-shadow(0 0 6px #ffecae80); }
+.urgency-banner-timer { display: flex; flex-shrink: 0; align-items: center; white-space: nowrap; }
+.urgency-banner-timer strong { display: inline-block; min-width: 5ch; color: #fff2cb; font-size: 20px; font-weight: 500; line-height: 1.25; text-align: center; font-variant-numeric: tabular-nums; }
+.urgency-banner-activity { display: flex; align-items: center; min-width: 224px; min-height: 24px; padding-left: 24px; border-left: 1px solid #ffffff30; font-size: 10px; line-height: 1.5; }
+.urgency-banner-entry { display: flex; align-items: center; gap: 6px; animation: urgency-entry-enter 400ms ease-out both; }
+.urgency-banner-entry strong { font-weight: 500; }
+.urgency-banner-avatar { display: grid; flex-shrink: 0; place-items: center; width: 18px; height: 18px; border: 1px solid #ffffff45; border-radius: 50%; background: #fff2; font-size: 9px; }
+.urgency-banner-waiting { color: #ffe0e5; }
+
+@keyframes urgency-entry-enter { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: none; } }
+
+@media (max-width: 700px) {
+  .urgency-banner-inner { flex-direction: column; gap: 4px; padding-block: 8px 6px; }
+  .urgency-banner-main { justify-content: center; gap: 14px; }
+  .urgency-banner-copy { gap: 6px; }
+  .urgency-banner-copy strong { font-size: 12px; }
+  .urgency-banner-icon { width: 17px; height: 17px; }
+  .urgency-banner-timer strong { font-size: 19px; }
+  .urgency-banner-activity { justify-content: center; min-width: 0; min-height: 20px; padding-left: 0; border-left: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .urgency-banner-entry { animation: none; }
+}

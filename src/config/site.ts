@@ -6,4 +6,6 @@ export const siteConfig = {
     group: "https://chat.whatsapp.com/GZ6SqvqGEjv6oYkN50Ujo0",
     instagram: "https://www.instagram.com/achamais.promos/",
   },
+  // ID do Pixel da Meta (Gerenciador de Eventos). Vazio = Pixel desligado.
+  metaPixelId: "1170044962029356",
 };

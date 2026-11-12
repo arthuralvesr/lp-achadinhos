@@ -14,7 +14,7 @@ export function Benefits() {
           <p>{benefitsContent.description}</p>
         </div>
         <BenefitsCards />
-        <div className="benefits-join" data-benefit-reveal="0"><GroupLink className="benefits-cta">Quero fazer parte do grupo</GroupLink><p>É grátis. Sem cadastro. Do seu jeito.</p></div>
+        <div className="benefits-join" data-benefit-reveal="0"><GroupLink className="benefits-cta">Quero fazer parte do grupo</GroupLink><p>É grátis. É seguro. Do seu jeito.</p></div>
       </BenefitsMotion>
     </section>
   );

@@ -23,7 +23,7 @@ export function CouponGate() {
           <h2 id={titleId}>O próximo desconto pode ser seu.</h2>
           <p id={descriptionId}>Entre no grupo do Acha+ para receber cupons e achadinhos. Confira as regras de cada cupom e aproveite o que fizer sentido para você.</p>
           <GroupLink className="coupon-dialog-join">Quero receber os cupons</GroupLink>
-          <small>É grátis. Sem cadastro. Saia quando quiser.</small>
+          <small>É grátis. É seguro. Saia quando quiser.</small>
         </div>
       </dialog>
       <noscript><style>{".coupon-covered { display: none; }"}</style><GroupLink className="coupon-fallback">Receber cupons no grupo</GroupLink></noscript>
